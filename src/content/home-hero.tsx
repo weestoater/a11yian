@@ -16,7 +16,7 @@ export const HomeHero = () => {
         part of social responsibility and good user experience.
       </p>
 
-      {/* <div className="status-card">
+      <div className="status-card">
         <div className="status-row">
           <span className="status-label">
             <span className="status-dot" aria-hidden="true" />
@@ -27,7 +27,7 @@ export const HomeHero = () => {
         <p className="status-meta">
           Always happy to assist charities / non-profits
         </p>
-      </div> */}
+      </div>
     </section>
   );
 };
