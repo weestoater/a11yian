@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/dark-logo.png";
+import { useEscapeKey } from "../hooks/use-escape-key";
 import { ThemeToggle } from "./theme-toggle";
+
+const NAV_LINKS = [
+  { to: "/", label: "Home", end: true },
+  { to: "/about", label: "About" },
+];
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,19 +19,10 @@ export const Header = () => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  useEffect(() => {
-    if (!isMenuOpen) return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsMenuOpen(false);
-        toggleRef.current?.focus();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isMenuOpen]);
+  useEscapeKey(isMenuOpen, () => {
+    setIsMenuOpen(false);
+    toggleRef.current?.focus();
+  });
 
   return (
     <header className="site-header">
@@ -49,14 +46,13 @@ export const Header = () => {
         </button>
         <nav className="site-nav" aria-label="Primary">
           <ul id="primary-nav" data-open={isMenuOpen}>
-            <li>
-              <NavLink to="/" end>
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/about">About</NavLink>
-            </li>
+            {NAV_LINKS.map(({ to, label, end }) => (
+              <li key={to}>
+                <NavLink to={to} end={end}>
+                  {label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
         <ThemeToggle />
