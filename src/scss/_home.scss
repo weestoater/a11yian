@@ -1,0 +1,158 @@
+.hero {
+  border-bottom: 0.0625rem solid var(--rule);
+  padding: 3.5rem 0 2.5rem;
+
+  h1 {
+    margin: 0 0 1rem;
+  }
+
+  p.lede {
+    color: var(--ink-soft);
+    font-size: 1.15rem;
+    margin: 0 0 1.75rem;
+    max-width: 46ch;
+  }
+}
+
+.heroimg {
+  border-radius: 0.75rem;
+  float: right;
+  margin: 0 0 1rem 1.5rem;
+  max-width: 33%;
+}
+
+@media (max-width: 31.25rem) {
+  .heroimg {
+    float: none;
+    margin: 0 0 1.5rem;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.status-card {
+  background: var(--surface);
+  border: 0.0625rem solid var(--rule);
+  margin-top: 2.25rem;
+  max-width: 23.75rem;
+  padding: 1.25rem 1.5rem;
+  position: relative;
+
+  &::before {
+    background: var(--forest);
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0.25rem;
+  }
+}
+
+.status-row {
+  align-items: baseline;
+  display: flex;
+  font-family: var(--serif-font);
+  justify-content: space-between;
+}
+
+.status-dot {
+  background: var(--forest);
+  border-radius: 50%;
+  display: inline-block;
+  height: 0.5rem;
+  margin-right: 0.25rem;
+  width: 0.5rem;
+}
+
+.status-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.status-meta {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+}
+
+section {
+  border-bottom: 0.0625rem solid var(--rule);
+  padding: 2.75rem 0;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  h2 {
+    margin: 0 0 1rem;
+  }
+}
+
+.service-list {
+  display: grid;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.service-item {
+  display: flex;
+  gap: 1rem;
+
+  h3 {
+    margin: 0 0 0.35rem;
+  }
+
+  p {
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 58ch;
+  }
+
+  .num {
+    color: var(--terracotta);
+    font-family: var(--serif-font);
+    font-size: 0.95rem;
+    margin-right: 0.4rem;
+  }
+}
+
+.service-icon {
+  color: var(--forest);
+  flex-shrink: 0;
+  height: 2rem;
+  width: 2rem;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+blockquote {
+  border-left: 0.1875rem solid var(--terracotta);
+  color: var(--ink);
+  font-family: var(--serif-font);
+  font-size: 1.25rem;
+  font-style: italic;
+  margin: 2rem 0;
+  max-width: 52ch;
+  padding-left: 1.5rem;
+
+  cite {
+    color: var(--ink-soft);
+    display: block;
+    font-family: var(--sans-font);
+    font-size: 0.85rem;
+    font-style: normal;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
