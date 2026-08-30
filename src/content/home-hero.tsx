@@ -15,19 +15,6 @@ export const HomeHero = () => {
         Making a project accessible is not a nice-to-have; it is an essential
         part of social responsibility and good user experience.
       </p>
-
-      {/* <div className="status-card">
-        <div className="status-row">
-          <span className="status-label">
-            <span className="status-dot" aria-hidden="true" />
-            Available
-          </span>
-          <span>for new projects</span>
-        </div>
-        <p className="status-meta">
-          Always happy to assist charities / non-profits
-        </p>
-      </div> */}
     </section>
   );
 };

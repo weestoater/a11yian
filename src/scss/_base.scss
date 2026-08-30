@@ -36,6 +36,67 @@ button:focus-visible {
   }
 }
 
+// Global typography, shared across all pages.
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans-font);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  font-family: var(--serif-font);
+  font-weight: 500;
+  letter-spacing: -0.01rem;
+  line-height: 1.15;
+}
+h1 {
+  font-size: 2.75rem;
+}
+h2 {
+  font-size: 1.6rem;
+}
+h3 {
+  font-size: 1.15rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration-thickness: 0.09375rem;
+  text-underline-offset: 0.1875rem;
+
+  &:hover {
+    color: var(--terracotta);
+  }
+}
+
+// Hero banner, shared by the home and about pages.
+.hero {
+  border-bottom: 0.0625rem solid var(--rule);
+  padding: 3.5rem 0 2.5rem;
+
+  h1 {
+    margin: 0 0 1rem;
+  }
+
+  p.lede {
+    color: var(--ink-soft);
+    font-size: 1.15rem;
+    margin: 0 0 1.75rem;
+    max-width: 46ch;
+  }
+}
+
+@media (max-width: 30rem) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
 header.site-header {
   border-bottom: 0.0625rem solid var(--rule);
   padding: 1.5rem 0.5rem;
@@ -261,15 +322,4 @@ footer {
   a {
     color: var(--ink-soft);
   }
-}
-
-img.img-full {
-  border-radius: 0.5rem;
-  display: block;
-  height: auto;
-  margin: 0 0 1.5rem;
-  width: 100%;
-}
-h1 .ian {
-  color: var(--forest);
 }
