@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashfield Public Library</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&display=swap');
+
+  :root,
+  [data-palette="forest"] {
+    --bg: #FAF7F2;
+    --ink: #24211D;
+    --ink-soft: #55524B;
+    --forest: #3F5D4C;
+    --forest-dark: #2E4638;
+    --terracotta: #A25C3A;
+    --sage: #E9ECE4;
+    --rule: #DAD4C7;
+    --max-width: 680px;
+  }
+
+  [data-palette="moss"] {
+    --bg: #F7F8F6;
+    --ink: #2B3A33;
+    --ink-soft: #494F4C;
+    --forest: #425A4E;
+    --forest-dark: #2B3A33;
+    --terracotta: #A25C3A;
+    --sage: #DDE3DE;
+    --rule: #C9D0CB;
+  }
+
+  [data-palette="graphite"] {
+    --bg: #F5F6F4;
+    --ink: #2B2B29;
+    --ink-soft: #8A8F8B;
+    --forest: #5A7A68;
+    --forest-dark: #3D5548;
+    --terracotta: #A25C3A;
+    --sage: #EFF1EE;
+    --rule: #D6D9D4;
+  }
+
+  .palette-switcher {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0.85rem 1.5rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .palette-switcher button {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.85rem;
+    padding: 0.4em 0.9em;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+    background: #fff;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .palette-switcher button[aria-pressed="true"] {
+    background: var(--forest);
+    color: #fff;
+    border-color: var(--forest);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Public Sans', system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  a {
+    color: var(--forest-dark);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+  }
+
+  a:hover { color: var(--terracotta); }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--terracotta);
+    outline-offset: 3px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 0.75em 1.25em;
+    z-index: 100;
+    text-decoration: none;
+  }
+  .skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+  }
+
+  header.site-header {
+    border-bottom: 1px solid var(--rule);
+    padding: 1.5rem 1.5rem;
+  }
+
+  .site-header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .site-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .site-title a { color: var(--ink); text-decoration: none; }
+
+  nav.site-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    font-size: 0.95rem;
+  }
+  nav.site-nav a { text-decoration: none; color: var(--ink-soft); }
+  nav.site-nav a:hover { color: var(--terracotta); }
+
+  main { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+
+  .hero {
+    padding: 3.5rem 0 2.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .eyebrow {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--forest-dark);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+    max-width: 14ch;
+    margin: 0 0 1rem;
+  }
+
+  .hero p.lede {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 0 1.75rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--forest);
+    color: #fff;
+    padding: 0.85em 1.6em;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 1px solid var(--forest);
+  }
+  .btn:hover { background: var(--forest-dark); color: #fff; }
+  .btn.secondary {
+    background: transparent;
+    color: var(--forest-dark);
+    border: 1px solid var(--ink);
+    margin-left: 0.75rem;
+  }
+  .btn.secondary:hover { background: var(--sage); color: var(--ink); }
+
+  /* Status card — signature element, styled like a library due-date stamp card */
+  .status-card {
+    margin-top: 2.25rem;
+    border: 1px solid var(--rule);
+    background: #fff;
+    padding: 1.25rem 1.5rem;
+    max-width: 380px;
+    position: relative;
+  }
+  .status-card::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--forest);
+  }
+  .status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Fraunces', Georgia, serif;
+  }
+  .status-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--forest);
+    margin-right: 0.5em;
+  }
+  .status-label { font-weight: 600; font-size: 1.05rem; }
+  .status-meta { font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.35rem; }
+
+  section {
+    padding: 2.75rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  section:last-of-type { border-bottom: none; }
+
+  section h2 {
+    font-size: 1.6rem;
+    margin: 0 0 1rem;
+  }
+
+  .service-list {
+    display: grid;
+    gap: 1.75rem;
+  }
+
+  .service-item h3 {
+    font-size: 1.15rem;
+    margin: 0 0 0.35rem;
+    font-weight: 600;
+  }
+  .service-item p {
+    margin: 0;
+    color: var(--ink-soft);
+    max-width: 58ch;
+  }
+  .service-item .num {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--terracotta);
+    font-size: 0.95rem;
+    margin-right: 0.4em;
+  }
+
+  blockquote {
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--terracotta);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--ink);
+    max-width: 52ch;
+  }
+  blockquote cite {
+    display: block;
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 0.5rem;
+  }
+
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    max-width: 420px;
+  }
+  .hours-table th { text-align: left; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); font-weight: 600;}
+  .hours-table td, .hours-table th {
+    padding: 0.5rem 0;
+  }
+  .hours-table tr + tr td { border-top: 1px solid var(--rule); }
+  .hours-table td:last-child { text-align: right; color: var(--ink-soft); }
+
+  footer {
+    padding: 2.5rem 1.5rem 3rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+  footer a { color: var(--ink-soft); }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 2rem; }
+    .btn.secondary { margin-left: 0; margin-top: 0.75rem; display: inline-block; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <p class="site-title"><a href="#">Ashfield Public Library</a></p>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#hours">Hours</a></li>
+        <li><a href="#events">Events</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="palette-switcher" role="group" aria-label="Preview colour palette">
+  <span>Palette:</span>
+  <button type="button" data-set-palette="forest" aria-pressed="true">Forest &amp; stone</button>
+  <button type="button" data-set-palette="moss" aria-pressed="false">Moss &amp; slate</button>
+  <button type="button" data-set-palette="graphite" aria-pressed="false">Sage &amp; graphite</button>
+</div>
+
+<main id="main">
+
+  <section class="hero">
+    <p class="eyebrow">Ashfield Libraries</p>
+    <h1>Borrow, reserve, and read — free with your library card</h1>
+    <p class="lede">Get a card in five minutes, reserve a book online, or drop by one of our three branches to browse. No fees, no fuss.</p>
+    <a href="#" class="btn">Get a library card</a>
+    <a href="#" class="btn secondary">Search the catalogue</a>
+
+    <div class="status-card">
+      <div class="status-row">
+        <span class="status-label"><span class="status-dot" aria-hidden="true"></span>Open now</span>
+        <span>until 7:00pm</span>
+      </div>
+      <p class="status-meta">Central Branch, 14 Mill Street</p>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>What you can do here</h2>
+    <div class="service-list">
+      <div class="service-item">
+        <h3><span class="num">01</span>Borrow books, in person or online</h3>
+        <p>Reserve a title from home and collect it at any branch, usually within two working days.</p>
+      </div>
+      <div class="service-item">
+        <h3><span class="num">02</span>Study and meeting spaces</h3>
+        <p>Quiet desks, group rooms, and printing are free to use with a library card. Rooms can be booked up to two weeks ahead.</p>
+      </div>
+      <div class="service-item">
+        <h3><span class="num">03</span>Storytime and reading groups</h3>
+        <p>Weekly sessions for toddlers, school-age readers, and adult book clubs, at every branch.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="hours">
+    <h2>Opening hours</h2>
+    <table class="hours-table">
+      <thead>
+        <tr><th scope="col">Day</th><th scope="col">Hours</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Monday–Friday</td><td>9:00am–7:00pm</td></tr>
+        <tr><td>Saturday</td><td>10:00am–4:00pm</td></tr>
+        <tr><td>Sunday</td><td>Closed</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="events">
+    <h2>From our readers</h2>
+    <blockquote>
+      Getting my son his first library card was free and took less time than the school run.
+      <cite>— Priya M., member since 2021</cite>
+    </blockquote>
+  </section>
+
+</main>
+
+<footer>
+  <p>Ashfield Public Library · 14 Mill Street · <a href="#">Accessibility statement</a> · <a href="#">Contact us</a></p>
+</footer>
+
+<script>
+  document.querySelectorAll('[data-set-palette]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var palette = btn.getAttribute('data-set-palette');
+      document.documentElement.setAttribute('data-palette', palette);
+      document.querySelectorAll('[data-set-palette]').forEach(function (b) {
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+    });
+  });
+</script>
+</body>
+</html>
