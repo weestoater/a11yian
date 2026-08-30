@@ -1,4 +1,5 @@
 import logo from "../assets/dark-logo.png";
+import { ThemeToggle } from "./theme-toggle";
 export const Header = () => {
   return (
     <header className="site-header">
@@ -9,6 +10,7 @@ export const Header = () => {
             A11Y <span className="ian">IAN</span>
           </span>
         </p>
+        <ThemeToggle />
       </div>
     </header>
   );

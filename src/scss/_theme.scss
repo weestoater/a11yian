@@ -1,14 +1,30 @@
 :root {
   --bg: #faf7f2;
+  --surface: #ffffff;
   --ink: #24211d;
   --ink-soft: #55524b;
   --forest: #3f5d4c;
   --forest-dark: #2e4638;
+  --link: #2e4638;
   --terracotta: #a25c3a;
   --sage: #e9ece4;
   --rule: #dad4c7;
-  --max-width: 680px;
+  --on-accent: #faf7f2;
+  --max-width: 42.5rem;
 
   --serif-font: "Fraunces", Georgia, serif;
   --sans-font: "Public Sans", system-ui, sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg: #1b1f1c;
+  --surface: #262b26;
+  --ink: #f2efe8;
+  --ink-soft: #b7b2a8;
+  --forest: #4f8a6c;
+  --forest-dark: #24352b;
+  --link: #8fcda9;
+  --terracotta: #e0916a;
+  --sage: #2c3a30;
+  --rule: #3a4038;
 }

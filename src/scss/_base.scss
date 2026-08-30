@@ -16,15 +16,15 @@ html {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid var(--terracotta);
-  outline-offset: 3px;
+  outline: 0.1875rem solid var(--terracotta);
+  outline-offset: 0.1875rem;
 }
 
 .skip-link {
   background: var(--ink);
   color: var(--bg);
-  left: -999px;
-  padding: 0.75em 1.25em;
+  left: -62.5rem;
+  padding: 0.75rem 1.25rem;
   position: absolute;
   text-decoration: none;
   top: 0;
@@ -37,7 +37,7 @@ button:focus-visible {
 }
 
 header.site-header {
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 0.0625rem solid var(--rule);
   padding: 1.5rem;
 
   .site-header-inner {
@@ -71,8 +71,62 @@ header.site-header {
     .ian {
       background: var(--forest-dark);
       border-radius: 0.25rem;
-      color: var(--bg);
+      color: var(--on-accent);
       padding: 0.25rem 0.5rem;
+    }
+  }
+}
+
+.theme-toggle {
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  display: flex;
+  font-family: var(--sans-font);
+  font-size: 0.9rem;
+  gap: 0.6rem;
+  padding: 0;
+
+  &:hover {
+    color: var(--ink);
+  }
+
+  .theme-toggle-track {
+    background: var(--rule);
+    border-radius: 62.5rem;
+    display: inline-block;
+    flex-shrink: 0;
+    height: 1.4rem;
+    position: relative;
+    transition: background-color 0.15s ease;
+    width: 2.6rem;
+  }
+
+  .theme-toggle-thumb {
+    background: var(--surface);
+    border-radius: 50%;
+    height: 1.1rem;
+    left: 0.15rem;
+    position: absolute;
+    top: 0.15rem;
+    transition: transform 0.15s ease;
+    width: 1.1rem;
+  }
+
+  &[aria-checked="true"] .theme-toggle-track {
+    background: var(--forest);
+  }
+
+  &[aria-checked="true"] .theme-toggle-thumb {
+    transform: translateX(1.2rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle-track,
+    .theme-toggle-thumb {
+      transition: none;
     }
   }
 }

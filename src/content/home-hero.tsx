@@ -1,6 +1,9 @@
+import heroImg from "../assets/hero-image.png";
+
 export const HomeHero = () => {
   return (
     <section className="hero">
+      <img src={heroImg} alt="" className="heroimg" />
       <h1>Accessible, inclusive web experiences</h1>
       <p className="lede">
         Hand crafting semantic code for over 25 years; expertise in auditing /
