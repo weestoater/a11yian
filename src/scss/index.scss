@@ -44,7 +44,6 @@ a {
 
   h1 {
     margin: 0 0 1rem;
-    max-width: 14ch;
   }
 
   p.lede {
@@ -59,7 +58,16 @@ a {
   border-radius: 0.75rem;
   float: right;
   margin: 0 0 1rem 1.5rem;
-  max-width: 45%;
+  max-width: 33%;
+}
+
+@media (max-width: 31.25rem) {
+  .heroimg {
+    float: none;
+    margin: 0 0 1.5rem;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .status-card {
