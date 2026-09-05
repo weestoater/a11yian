@@ -309,6 +309,10 @@ main {
   max-width: var(--max-width);
   min-height: calc(100vh - 10rem);
   padding: 0 1.5rem;
+
+  p {
+    margin: 0 0 1.75rem;
+  }
 }
 
 footer {

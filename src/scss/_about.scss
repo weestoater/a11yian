@@ -1,13 +1,29 @@
 // Styles specific to the about page (src/content/about-hero.tsx).
 
-img.img-full {
-  border-radius: 0.5rem;
-  display: block;
-  height: auto;
-  margin: 0 0 4rem;
-  width: 100%;
-}
+img {
+  &.img-full {
+    border-radius: 0.5rem;
+    display: block;
+    height: auto;
+    margin: 0 0 4rem;
+    width: 100%;
+  }
 
-h1 .ian {
+  &.img-left {
+    border-radius: 0.75rem;
+    float: left;
+    margin: 0 1.5rem 1rem 0;
+    max-width: 33%;
+  }
+
+  &.img-right {
+    border-radius: 0.75rem;
+    float: right;
+    margin: 0 0 1rem 1.5rem;
+    max-width: 33%;
+  }
+}
+h1 .ian,
+h2 .ian {
   color: var(--forest);
 }
