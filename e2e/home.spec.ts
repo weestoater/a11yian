@@ -30,7 +30,7 @@ test.describe("Home Page", () => {
   test("should have functioning navigation links", async ({ page }) => {
     // Navigation may be in a collapsed menu on small viewports
     const navLinks = page.locator("nav a[href]");
-    await expect(navLinks).toHaveCount(2);
+    await expect(navLinks).toHaveCount(3);
   });
 
   test("should have theme toggle button", async ({ page }) => {
@@ -45,5 +45,13 @@ test.describe("Home Page", () => {
     await aboutLink.click();
     await expect(page).toHaveURL("/#/about");
     await expect(page.locator("h1")).toContainText("About A11y");
+  });
+
+  test("should navigate to Guide page", async ({ page }) => {
+    const aboutLink = page.locator('a:has-text("Guide")');
+    await aboutLink.scrollIntoViewIfNeeded();
+    await aboutLink.click();
+    await expect(page).toHaveURL("/#/guide");
+    await expect(page.locator("h1")).toContainText("Guide to ");
   });
 });
