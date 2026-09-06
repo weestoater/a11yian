@@ -1,4 +1,4 @@
-import a11yDavinci from "../assets/a11y-davinci.png";
+import a11yDavinci from "../../assets/a11y-davinci.png";
 
 export const AboutHero = () => {
   return (

@@ -1,5 +1,5 @@
-import ltsLogo from "../assets/ltscotland-logo.jpg";
-import gaadLogo from "../assets/gaad-logo-navy.png";
+import ltsLogo from "../../assets/ltscotland-logo.jpg";
+import gaadLogo from "../../assets/gaad-logo-navy.png";
 
 export const AboutBackground = () => {
   return (

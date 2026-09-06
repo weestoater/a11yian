@@ -45,7 +45,7 @@ export const Header = () => {
           onClick={() => setIsMenuOpen((open) => !open)}
         >
           <span className="nav-toggle-icon" aria-hidden="true" />
-          {isMenuOpen ? "Close menu" : "Menu"}
+          {isMenuOpen ? "Close" : "Menu"}
         </button>
         <nav className="site-nav" aria-label="Primary">
           <ul id="primary-nav" data-open={isMenuOpen}>
@@ -56,6 +56,9 @@ export const Header = () => {
             </li>
             <li>
               <NavLink to="/about">About</NavLink>
+            </li>
+            <li>
+              <NavLink to="/guide">Guide</NavLink>
             </li>
           </ul>
         </nav>
