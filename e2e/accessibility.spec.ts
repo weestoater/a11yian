@@ -60,3 +60,64 @@ test.describe("Accessibility & Navigation", () => {
     await expect(footer).toContainText(currentYear.toString());
   });
 });
+
+test.describe("Axe Accessibility Scans", () => {
+  const scanForA11yViolations = async (page: any) => {
+    // Inject axe-core via CDN
+    await page.addScriptTag({
+      url: "https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.10.0/axe.min.js",
+    });
+
+    // Run axe accessibility scan and get results
+    const violations = await page.evaluate(() => {
+      return new Promise<any[]>((resolve) => {
+        (window as any).axe.run((error: any, results: any) => {
+          if (error) throw error;
+          resolve(results.violations);
+        });
+      });
+    });
+
+    return violations;
+  };
+
+  test("should not have accessibility violations on home page", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const violations = await scanForA11yViolations(page);
+    expect(violations).toHaveLength(0);
+  });
+
+  test("should not have accessibility violations on about page", async ({
+    page,
+  }) => {
+    await page.goto("/about");
+    const violations = await scanForA11yViolations(page);
+    expect(violations).toHaveLength(0);
+  });
+
+  test("should not have accessibility violations on guide page", async ({
+    page,
+  }) => {
+    await page.goto("/guide");
+    const violations = await scanForA11yViolations(page);
+    expect(violations).toHaveLength(0);
+  });
+
+  test("should not have accessibility violations on tools page", async ({
+    page,
+  }) => {
+    await page.goto("/tools");
+    const violations = await scanForA11yViolations(page);
+    expect(violations).toHaveLength(0);
+  });
+
+  test("should not have accessibility violations in theme toggle", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const violations = await scanForA11yViolations(page);
+    expect(violations).toHaveLength(0);
+  });
+});

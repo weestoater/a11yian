@@ -18,7 +18,7 @@ export const AboutBackground = () => {
         role as Front-End Developer for Learning and Teaching Scotland. I found
         the amazing Jeffrey Zeldmans' passiontate advocacy of web standards
         resonated deeply and has shaped my approach to the web ever since. It
-        actually takes more effort to do things badly, that it does to just use
+        actually takes more effort to do things badly, than it does to just use
         the right html elements and markup in the first place. If something
         makes sense in HTML, it will make sense to the devices consuming it - so
         why build a soup of hacks and workarounds.

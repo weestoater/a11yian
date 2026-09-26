@@ -77,7 +77,7 @@ a {
 // Hero banner, shared by the home and about pages.
 .hero {
   border-bottom: 0.0625rem solid var(--rule);
-  padding: 3.5rem 0 2.5rem;
+  padding: 3.5rem 0 1.5rem;
 
   h1 {
     margin: 0 0 4rem;
@@ -365,6 +365,18 @@ img {
     float: right;
     margin: 0 0 1rem 1.5rem;
     max-width: 33%;
+  }
+  &.bordered {
+    border: 0.0625rem solid var(--rule);
+    border-radius: 0.75rem;
+  }
+  @media (max-width: 400px) {
+    &.img-left,
+    &.img-right {
+      float: none;
+      margin: 0 0 1.5rem;
+      max-width: 100%;
+    }
   }
 }
 h1 .ian,

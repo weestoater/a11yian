@@ -5,13 +5,25 @@ export const WhyAccessibilityMatters = () => {
       <p>
         Accessibility is not just about compliance or following regulations.
         It's about creating inclusive digital experiences that work for
-        everyone.
+        everyone. Designing and building with accessibility in mind, ensures
+        that people with disabilities can use your products and services
+        effectively.
       </p>
+
+      <p>Three categories of disability:</p>
+      <ul>
+        <li>Permanent</li>
+        <li>Temporary</li>
+        <li>Situational</li>
+      </ul>
+
       <p>
-        By designing and building with accessibility in mind, you ensure that
-        people with disabilities can use your products and services effectively.
+        Microsoft has an excellent graphic, which illustrates this brilliantly -
+        showing the person carrying a child and trying to open a door -
+        situational; a person who crashed their bike and broke their arm -
+        temporary; and a person with a permanent disability navigating the
+        environment.
       </p>
-      <p>Placeholder content for why accessibility matters section.</p>
     </section>
   );
 };
