@@ -371,7 +371,7 @@ img {
     border: 0.0625rem solid var(--rule);
     border-radius: 0.75rem;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     &.img-left,
     &.img-right {
       float: none;
@@ -398,7 +398,8 @@ ul {
 }
 
 footer {
-  color: var(--ink-soft);
+  background: var(--forest-dark);
+  color: white;
   font-size: 0.9rem;
   margin: 0 auto;
   max-width: var(--max-width);
