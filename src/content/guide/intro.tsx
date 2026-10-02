@@ -12,9 +12,9 @@ export const GuideIntro = () => {
       />
 
       <p>
-        Welcome to the A11yIan guide, I hope it will help you understand
-        accessibility best practices and perhaps inspire you to implement them
-        in your projects.
+        Welcome to the A11yIan guide, I hope it helps you understand
+        accessibility best practices and perhaps inspires you to implement them
+        in your own projects.
       </p>
     </section>
   );

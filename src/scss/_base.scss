@@ -50,7 +50,7 @@ h2,
 h3 {
   color: var(--ink);
   font-family: var(--serif-font);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.01rem;
   line-height: 1.15;
 }
@@ -58,10 +58,10 @@ h1 {
   font-size: 2.75rem;
 }
 h2 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 h3 {
-  font-size: 1.15rem;
+  font-size: 1.45rem;
 }
 
 a {
@@ -371,6 +371,11 @@ img {
     border: 0.0625rem solid var(--rule);
     border-radius: 0.75rem;
   }
+
+  &:hover {
+    transform: scale(200%);
+  }
+
   @media (max-width: 500px) {
     &.img-left,
     &.img-right {
@@ -402,7 +407,7 @@ footer {
   color: white;
   font-size: 0.9rem;
   margin: 0 auto;
-  max-width: var(--max-width);
+  // max-width: var(--max-width);
   padding: 2.5rem 1.5rem 3rem;
   text-align: center;
 
