@@ -57,6 +57,23 @@ export const WhereToLearn = () => {
         These resources will help you understand the importance of using
         semantic HTML and how it contributes to web accessibility.
       </p>
+
+      <h3>AbilityNet</h3>
+      <p>
+        There are some excellent resources available on the AbilityNet website:-
+      </p>
+      <ul>
+        <li>
+          AbilityNet's accessibility resources:{" "}
+          <a
+            href="https://abilitynet.org.uk/resources/digital-accessibility"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Digital accessibility resources
+          </a>
+        </li>
+      </ul>
     </section>
   );
 };
