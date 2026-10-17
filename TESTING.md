@@ -4,10 +4,11 @@ This project uses [Playwright](https://playwright.dev/) for regression testing a
 
 ## Setup
 
-Playwright is already configured in this project. To install dependencies:
+Playwright is already configured in this project. Install dependencies and the browser binaries used by the test projects:
 
 ```bash
-npm install
+yarn install
+yarn playwright install
 ```
 
 ## Running Tests
