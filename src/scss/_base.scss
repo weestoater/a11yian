@@ -372,9 +372,9 @@ img {
     border-radius: 0.75rem;
   }
 
-  &:hover {
-    transform: scale(200%);
-  }
+  // &:hover {
+  //   transform: scale(200%);
+  // }
 
   @media (max-width: 500px) {
     &.img-left,
