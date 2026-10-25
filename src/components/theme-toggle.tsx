@@ -56,7 +56,10 @@ export const ThemeToggle = () => {
   }, [theme]);
 
   return (
+  <div className="theme-switcher-box">
+    <label htmlFor="theme-toggle">Theme</label>
     <button
+      id="theme-toggle"
       type="button"
       className="theme-toggle"
       role="switch"
@@ -68,7 +71,7 @@ export const ThemeToggle = () => {
           {isDark ? <MoonIcon /> : <SunIcon />}
         </span>
       </span>
-      <span className="theme-toggle-label">{isDark ? "Dark" : "Light"} mode</span>
+      <span className="theme-toggle-label">{isDark ? "Dark" : "Light"}</span>
     </button>
-  );
+  </div>);
 };

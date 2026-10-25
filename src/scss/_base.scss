@@ -267,7 +267,15 @@ header.site-header {
     }
   }
 }
-
+.theme-switcher-box {
+  border: none;
+  display: block;
+    margin-top: -1.5rem;
+  label {
+    font-family: var(--sans-font);
+    font-size: 0.75rem;
+  }
+}
 .theme-toggle {
   align-items: center;
   background: none;
@@ -316,6 +324,7 @@ header.site-header {
   .theme-toggle-label {
     font-family: var(--sans-font);
     font-size: 0.85rem;
+    font-weight: bold;
   }
 
   &[aria-checked="true"] .theme-toggle-track {
