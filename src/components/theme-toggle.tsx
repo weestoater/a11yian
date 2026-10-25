@@ -68,7 +68,7 @@ export const ThemeToggle = () => {
           {isDark ? <MoonIcon /> : <SunIcon />}
         </span>
       </span>
-      <span className="theme-toggle-label">{isDark ? "Dark" : "Light"}</span>
+      <span className="theme-toggle-label">{isDark ? "Dark" : "Light"} mode</span>
     </button>
   );
 };
